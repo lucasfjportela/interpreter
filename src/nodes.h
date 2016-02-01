@@ -2,7 +2,7 @@
 typedef enum {
 	constant_t,
 	print_t,
-  add_t
+	add_t
 } nodeType;
 
 /* constant */
@@ -13,7 +13,7 @@ typedef struct {
 /* add */
 typedef struct {
 	struct Node *child1; /* 1st child node */
-  struct Node *child2; /* 2nd child node */
+	struct Node *child2; /* 2nd child node */
 } addNode;
 
 /* print */
@@ -26,7 +26,7 @@ typedef struct Node {
 	nodeType type;       /* type from enum    */
 	union {              /* struct from above */
 		constantNode con;
-    addNode add;
+		addNode add;
 		printNode print;
 	};
 } node;
