@@ -8,13 +8,13 @@
 %}
 
 %union {
-	int			int_val;
-	node*		node_p;
+	int     int_val;
+	node*   node_p;
 }
 
-%token							PRINT PLUS; 
-%token	<int_val>		NUMBER;
-%type		<node_p>		line expression constant; 
+%token              PRINT PLUS; 
+%token  <int_val>   NUMBER;
+%type   <node_p>    line expression constant; 
 
 %start parsetree 
 
