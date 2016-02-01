@@ -2,7 +2,7 @@ Barely any features yet, but the interpreting part works! Awesome :)
 
 # Grammar
 
-print <expression> | <number>
+print <expression> 
 
       <expression> : <expression> + <number>
                    | <number>
