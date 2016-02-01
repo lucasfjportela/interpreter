@@ -1,22 +1,22 @@
 %{
-	#include <stdio.h>
-	#include <stdlib.h>
-	#include <string.h>
-	#include "src/nodes.h"
-	extern int yylex();
-	extern void yyerror(char*);
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "src/nodes.h"
+extern int yylex();
+extern void yyerror(char*);
 %}
 
 %union {
-	int     int_val;
-	node*   node_p;
+  int     int_val;
+  node*   node_p;
 }
 
-%token              PRINT PLUS; 
+%token              PRINT PLUS;
 %token  <int_val>   NUMBER;
-%type   <node_p>    line expression constant; 
+%type   <node_p>    line expression constant;
 
-%start parsetree 
+%start parsetree
 
 %%
 
