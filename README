@@ -2,11 +2,12 @@ Barely any features yet, but the interpreting part works! Awesome :)
 
 # Grammar
 
-print <expression> 
-
-      <expression> : <expression> + <number>
-                   | <expression> - <number>
-                   | <number>
+if       <expression> { <body> }
+print    <expression>
+ 
+         <expression> : <expression> + <number>
+                      | <expression> - <number>
+                      | <number>
 
 
 # Checklist - Adding a new node

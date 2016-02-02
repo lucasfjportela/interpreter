@@ -10,8 +10,14 @@ int yyparse(void);
 %%
 
 [ \t\n]+   ; /* skip whitespace */ 
+"if"       { return IF; }
 "print"    { return PRINT; }
 [0-9]+     { yylval.int_val = atoi(yytext); return NUMBER; }
+";"        { return SEMICOL; }
+"("        { return LPAREN; }
+")"        { return RPAREN; }
+"{"        { return LBRACE; }
+"}"        { return RBRACE; }
 "+"        { return PLUS; }
 "-"        { return MINUS; }
 .          { yyerror("Invalid token\n"); exit(1); }

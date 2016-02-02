@@ -53,6 +53,33 @@ node *constant_n(int value) {
 	return p;
 }
 
+/* create node: IF */
+node *if_n(node *cond, node *body) {
+	node *p;
+
+	/* allocate size of the node */
+	p = nalloc();
+
+	/* store information */
+	p->type = if_t;
+	p->ifno.cond = cond;
+	p->ifno.body = body;
+	return p;
+}
+
+/* create node: PRINT */
+node *print_n(node *child) {
+	node *p;
+
+	/* allocate size of the node */
+	p = nalloc();
+
+	/* store information */
+	p->type = print_t;
+	p->print.child = child;
+	return p;
+}
+
 /* create node: ADD */
 node *add_n(node *child1, node *child2) {
 	node *p;
@@ -81,15 +108,3 @@ node *subtract_n(node *child1, node *child2) {
 	return p;
 }
 
-/* create node: PRINT */
-node *print_n(node *child) {
-	node *p;
-
-	/* allocate size of the node */
-	p = nalloc();
-
-	/* store information */
-	p->type = print_t;
-	p->print.child = child;
-	return p;
-}
