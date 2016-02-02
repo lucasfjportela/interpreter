@@ -30,6 +30,8 @@ int main(int argc, char** argv) {
 	yyin = file;
 	yyparse();
 	fclose(file);
+
+	return 0;
 }
 
 /* evaluate node */
