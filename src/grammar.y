@@ -12,7 +12,7 @@ extern void yyerror(char*);
   node*   node_p;
 }
 
-%token              PRINT PLUS;
+%token              PRINT PLUS MINUS;
 %token  <int_val>   NUMBER;
 %type   <node_p>    line expression constant;
 
@@ -25,6 +25,7 @@ parsetree   : line                      { eval($1); }
 line        : PRINT expression          { $$ = print_n($2); }
             ;
 expression  : expression PLUS constant  { $$ = add_n($1, $3); }
+            | expression MINUS constant { $$ = subtract_n($1, $3); }
             | constant                  { $$ = $1; }
             ;
 constant    : NUMBER                    { $$ = constant_n($1); }

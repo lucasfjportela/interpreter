@@ -13,5 +13,6 @@ int yyparse(void);
 "print"    { return PRINT; }
 [0-9]+     { yylval.int_val = atoi(yytext); return NUMBER; }
 "+"        { return PLUS; }
+"-"        { return MINUS; }
 .          { yyerror("Invalid token\n"); exit(1); }
 %%

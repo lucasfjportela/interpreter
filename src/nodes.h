@@ -2,7 +2,8 @@
 typedef enum {
 	constant_t,
 	print_t,
-	add_t
+	add_t,
+	subtract_t
 } nodeType;
 
 /* constant */
@@ -16,6 +17,12 @@ typedef struct {
 	struct Node *child2; /* 2nd child node */
 } addNode;
 
+/* subtract */
+typedef struct {
+	struct Node *child1; /* 1st child node */
+	struct Node *child2; /* 2nd child node */
+} subtractNode;
+
 /* print */
 typedef struct {
 	struct Node *child;  /* child node */
@@ -27,11 +34,13 @@ typedef struct Node {
 	union {              /* struct from above */
 		constantNode con;
 		addNode add;
+    subtractNode sub;
 		printNode print;
 	};
 } node;
 
 node *constant_n(int value);
 node *add_n(node *child1, node *child2);
+node *subtract_n(node *child1, node *child2);
 node *print_n(node *child);
 int eval(node *p);

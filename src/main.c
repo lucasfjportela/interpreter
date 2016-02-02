@@ -42,6 +42,7 @@ int eval(node *p) {
 		case constant_t: return p->con.value; break;
 		case print_t: printf("%d\n", eval(p->print.child)); break;
 		case add_t: return eval(p->add.child1) + eval(p->add.child2); break;
+		case subtract_t: return eval(p->sub.child1) - eval(p->sub.child2); break;
 	}
 }
 
