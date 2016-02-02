@@ -2,21 +2,20 @@
 #include <stdio.h>
 #include "nodes.h"
 
-/*
+/* allocate memory for node */
 node *nalloc() {
 	node *p;
 	if ((p = malloc(sizeof(node))) == NULL)
 		printf("out of memory");
 	return p;
 }
-*/
 
+/* create node: BODY */
 node *body_n(node *child) {
 	node *p;
 
 	/* allocate size of the node */
-	if ((p = malloc(sizeof(node))) == NULL)
-		printf("out of memory");
+	p = nalloc();
 
 	/* allocate size of new child */
 	if ((p->body.children = malloc(sizeof(node))) == NULL)
@@ -29,6 +28,7 @@ node *body_n(node *child) {
 	return p;
 }
 
+/* push new node to body */
 void body_push(node *p, node *child) {
 
 	/* reallocate size of pointer array */
@@ -45,8 +45,7 @@ node *constant_n(int value) {
 	node *p;
 
 	/* allocate size of the node */
-	if ((p = malloc(sizeof(node))) == NULL)
-		printf("out of memory");
+	p = nalloc();
 
 	/* store information */
 	p->type = constant_t;
@@ -59,8 +58,7 @@ node *add_n(node *child1, node *child2) {
 	node *p;
 
 	/* allocate size of the node */
-	if ((p = malloc(sizeof(node))) == NULL)
-		printf("out of memory");
+	p = nalloc();
 
 	/* store information */
 	p->type = add_t;
@@ -74,8 +72,7 @@ node *subtract_n(node *child1, node *child2) {
 	node *p;
 
 	/* allocate size of the node */
-	if ((p = malloc(sizeof(node))) == NULL)
-		printf("out of memory");
+	p = nalloc();
 
 	/* store information */
 	p->type = subtract_t;
@@ -89,8 +86,7 @@ node *print_n(node *child) {
 	node *p;
 
 	/* allocate size of the node */
-	if ((p = malloc(sizeof(node))) == NULL)
-		printf("out of memory");
+	p = nalloc();
 
 	/* store information */
 	p->type = print_t;
