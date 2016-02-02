@@ -41,23 +41,23 @@ int eval(node *p) {
 	if (!p) return 0;
 	switch(p->type) {
 
-    /* body node */
+		/* body node */
 		case body_t:
 			for (i = 0; i <= p->body.count; i++)
 				eval(p->body.children[i]);
 			break;
 
-    /* constant node */
+		/* constant node */
 		case constant_t:
 			return p->con.value;
 
-    /* if node */
+		/* if node */
 		case if_t:
 			if (eval(p->ifno.cond))
 				eval(p->ifno.body);
 			break;
 
-   /* print node */
+		/* print node */
 		case print_t:
 			printf("%d\n", eval(p->print.child));
 			break;
