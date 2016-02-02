@@ -2,6 +2,44 @@
 #include <stdio.h>
 #include "nodes.h"
 
+/*
+node *nalloc() {
+	node *p;
+	if ((p = malloc(sizeof(node))) == NULL)
+		printf("out of memory");
+	return p;
+}
+*/
+
+node *body_n(node *child) {
+	node *p;
+
+	/* allocate size of the node */
+	if ((p = malloc(sizeof(node))) == NULL)
+		printf("out of memory");
+
+	/* allocate size of new child */
+	if ((p->body.children = malloc(sizeof(node))) == NULL)
+		printf("out of memory");
+
+	/* store information */
+	p->type = body_t;
+	p->body.children[0] = child;
+  p->body.count = 1;
+	return p;
+}
+
+void body_push(node *p, node *child) {
+
+	/* reallocate size of pointer array */
+	if ((*p->body.children = realloc(*p->body.children, 
+	  (p->body.count + 1) * sizeof(node))) == NULL)
+		printf("out of memory");
+
+	/* append new child */
+	p->body.children[p->body.count] = child;
+}
+
 /* create node: CONSTANT */
 node *constant_n(int value) {
 	node *p;

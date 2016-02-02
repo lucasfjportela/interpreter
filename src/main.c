@@ -36,13 +36,24 @@ int main(int argc, char** argv) {
 
 /* evaluate node */
 int eval(node *p) {
+	int i;
 
 	if (!p) return 0;
 	switch(p->type) {
-		case constant_t: return p->con.value; break;
-		case print_t: printf("%d\n", eval(p->print.child)); break;
-		case add_t: return eval(p->add.child1) + eval(p->add.child2); break;
-		case subtract_t: return eval(p->sub.child1) - eval(p->sub.child2); break;
+		case body_t:
+			for (i = 0; i <= p->body.count; i++ ) {
+				eval(p->body.children[i]);
+			}
+			break;
+		case constant_t:
+			return p->con.value;
+		case print_t:
+			printf("%d\n", eval(p->print.child));
+			break;
+		case add_t:
+			return eval(p->add.child1) + eval(p->add.child2);
+		case subtract_t:
+			return eval(p->sub.child1) - eval(p->sub.child2);
 	}
 }
 

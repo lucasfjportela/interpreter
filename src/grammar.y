@@ -14,15 +14,21 @@ extern void yyerror(char*);
 
 %token              PRINT PLUS MINUS;
 %token  <int_val>   NUMBER;
-%type   <node_p>    line expression constant;
+%type   <node_p>    body line statement expression constant;
 
 %start parsetree
 
 %%
 
-parsetree   : line                      { eval($1); }
+parsetree   : body                      { eval($1); }
             ;
-line        : PRINT expression          { $$ = print_n($2); }
+body        : line                      { $$ = body_n($1); }
+            | body line                 { body_push($1, $2); $$ = $1; }
+            ;
+line        : statement
+            | expression
+            ;
+statement   : PRINT expression          { $$ = print_n($2); }
             ;
 expression  : expression PLUS constant  { $$ = add_n($1, $3); }
             | expression MINUS constant { $$ = subtract_n($1, $3); }

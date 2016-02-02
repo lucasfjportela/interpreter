@@ -1,10 +1,17 @@
 /* node type */
 typedef enum {
+  body_t,
 	constant_t,
 	print_t,
 	add_t,
 	subtract_t
 } nodeType;
+
+/* body */
+typedef struct {
+	struct Node **children;
+	int count;
+} bodyNode;
 
 /* constant */
 typedef struct {
@@ -32,15 +39,18 @@ typedef struct {
 typedef struct Node {
 	nodeType type;       /* type from enum    */
 	union {              /* struct from above */
+    bodyNode body;
 		constantNode con;
 		addNode add;
-    subtractNode sub;
+		subtractNode sub;
 		printNode print;
 	};
 } node;
 
+node *body_n(node *child);
 node *constant_n(int value);
 node *add_n(node *child1, node *child2);
 node *subtract_n(node *child1, node *child2);
 node *print_n(node *child);
+void body_push(node *body, node *child);
 int eval(node *p);
