@@ -41,9 +41,8 @@ int eval(node *p) {
 	if (!p) return 0;
 	switch(p->type) {
 		case body_t:
-			for (i = 0; i <= p->body.count; i++ ) {
+			for (i = 0; i <= p->body.count; i++)
 				eval(p->body.children[i]);
-			}
 			break;
 		case constant_t:
 			return p->con.value;
