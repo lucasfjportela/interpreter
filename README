@@ -5,6 +5,7 @@ Barely any features yet, but the interpreting part works! Awesome :)
 print <expression> 
 
       <expression> : <expression> + <number>
+                   | <expression> - <number>
                    | <number>
 
 
