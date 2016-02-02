@@ -33,7 +33,7 @@ void body_push(node *p, node *child) {
 
 	/* reallocate size of pointer array */
 	if ((*p->body.children = realloc(*p->body.children, 
-	  (p->body.count + 1) * sizeof(node))) == NULL)
+	  (++p->body.count) * sizeof(node))) == NULL)
 		printf("out of memory");
 
 	/* append new child */
