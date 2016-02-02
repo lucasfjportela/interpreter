@@ -39,7 +39,7 @@ typedef struct {
 typedef struct Node {
 	nodeType type;       /* type from enum    */
 	union {              /* struct from above */
-    bodyNode body;
+		bodyNode body;
 		constantNode con;
 		addNode add;
 		subtractNode sub;

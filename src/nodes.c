@@ -25,7 +25,7 @@ node *body_n(node *child) {
 	/* store information */
 	p->type = body_t;
 	p->body.children[0] = child;
-  p->body.count = 1;
+	p->body.count = 1;
 	return p;
 }
 
