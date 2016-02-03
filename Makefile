@@ -7,8 +7,8 @@ run: all
 all: parser
 
 parser: grammar lex
-	gcc -c lex.yy.c grammar.tab.c
-	gcc -g -o interpreter src/main.c src/nodes.c grammar.tab.o lex.yy.o 
+	gcc -Wall -c lex.yy.c grammar.tab.c
+	gcc -Wall -g -o interpreter src/main.c src/nodes.c grammar.tab.o lex.yy.o 
 	@echo "================================================================";
 	@rm grammar.tab.c grammar.tab.h lex.yy.c
 	@rm grammar.tab.o lex.yy.o

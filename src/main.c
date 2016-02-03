@@ -10,7 +10,6 @@ int eval(node *p);
 int main(int argc, char** argv) {
 
 	extern FILE *yyin; 
-	extern FILE *yyout; 
 	extern int yyparse(void);
 
 	/* check for file parameter */
@@ -91,4 +90,3 @@ int eval(node *p) {
 void yyerror(char* error) {
 	printf("Parser ERROR: %s\n", error);
 }
-int yywrap(void) {}

@@ -7,6 +7,10 @@ void yyerror(char*);
 int yyparse(void); 
 %}
 
+%option noyywrap
+%option nounput
+%option noinput
+
 %%
 
 [ \t\n]+   ; /* skip whitespace */ 
