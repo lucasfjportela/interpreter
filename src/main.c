@@ -42,9 +42,9 @@ int eval(node *p) {
 
 		/* body node */
 		case body_t:
-			for (i = 0; i < p->body.count; i++) {
+			for (i = 0; i < p->body.count; i++)
 				eval(p->body.children[i]);
-			}
+			free(p->body.children);
 			free(p);
 			break;
 
@@ -54,9 +54,8 @@ int eval(node *p) {
 
 		/* if node */
 		case if_t:
-			if (eval(p->ifno.cond)) {
+			if (eval(p->ifno.cond))
 				eval(p->ifno.body);
-			}
 			free(p->ifno.cond);
 			free(p);
 			break;
