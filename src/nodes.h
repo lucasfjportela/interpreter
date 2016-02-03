@@ -2,7 +2,7 @@
 typedef enum {
   body_t,
 	constant_t,
-  if_t,
+	if_t,
 	print_t,
 	add_t,
 	subtract_t,
