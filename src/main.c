@@ -56,6 +56,7 @@ int eval(node *p) {
 		case if_t:
 			if (eval(p->ifno.cond))
 				eval(p->ifno.body);
+			/*  TODO: body_free function */
 			free(p->ifno.cond);
 			free(p);
 			break;

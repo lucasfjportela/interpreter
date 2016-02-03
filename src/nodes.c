@@ -17,7 +17,7 @@ node *body_n(node *child) {
 	/* allocate size of the node */
 	p = nalloc();
 
-	/* allocate size of new child */
+	/* allocate size of first child */
 	if ((p->body.children = malloc(sizeof(child))) == NULL)
 		printf("out of memory");
 
