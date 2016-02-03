@@ -58,6 +58,7 @@ int eval(node *p) {
 				eval(p->ifno.body);
 			}
 			free(p->ifno.cond);
+			free(p);
 			break;
 
 		/* print node */ 
