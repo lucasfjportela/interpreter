@@ -11,11 +11,11 @@ Barely any features yet, but the interpreting part works! Awesome :)
 
 # Todo
 
-	* Proper memory management / garbage collection:
-	      because nodes that aren't executed (like an if
-	      with false conditions) must be freed recursivly
-	      too. And also everything should be separate from
-	      the eval function.
+  * Proper memory management / garbage collection:
+	    because nodes that aren't executed (like an if
+	    with false conditions) must be freed recursivly
+	    too. And also everything should be separate from
+	    the eval function.
 
 # Checklist - Adding a new node
 
