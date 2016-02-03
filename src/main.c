@@ -45,9 +45,10 @@ int eval(node *p) {
 		case body_t:
 			for (i = 0; i <= p->body.count; i++)
 				eval(p->body.children[i]);
+			free(p);
 			break;
 
-		/* constant node */
+		/* constant node */ 
 		case constant_t:
 			return p->con.value;
 
@@ -55,18 +56,19 @@ int eval(node *p) {
 		case if_t:
 			if (eval(p->ifno.cond))
 				eval(p->ifno.body);
+			free(p);
 			break;
 
-		/* print node */
+		/* print node */ 
 		case print_t:
 			printf("%d\n", eval(p->print.child));
 			break;
 
-		/* add node */
+		/* add node */ 
 		case add_t:
 			return eval(p->add.child1) + eval(p->add.child2);
 
-		/* subtract node */
+		/* subtract node */ 
 		case subtract_t:
 			return eval(p->sub.child1) - eval(p->sub.child2);
 	}

@@ -10,6 +10,7 @@ int yyparse(void);
 %%
 
 [ \t\n]+   ; /* skip whitespace */ 
+"#".+     ; /* skip comments */
 "if"       { return IF; }
 "print"    { return PRINT; }
 [0-9]+     { yylval.int_val = atoi(yytext); return NUMBER; }

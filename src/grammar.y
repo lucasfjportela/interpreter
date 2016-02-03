@@ -30,8 +30,7 @@ line        : statement SEMICOL
             | expression SEMICOL
             | block
             ;
-statement   : 
-            | PRINT expression                   { $$ = print_n($2); }
+statement   : PRINT expression                   { $$ = print_n($2); }
             ;
 expression  : expression PLUS constant           { $$ = add_n($1, $3); }
             | expression MINUS constant          { $$ = subtract_n($1, $3); }
@@ -39,6 +38,5 @@ expression  : expression PLUS constant           { $$ = add_n($1, $3); }
             ;
 block       : IF expression LBRACE body RBRACE   { $$ = if_n($2, $4); }
             ;
-
 constant    : NUMBER                             { $$ = constant_n($1); }
             ;

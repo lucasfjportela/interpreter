@@ -10,6 +10,11 @@ print    <expression>
                       | <number>
 
 
+# Todo
+
+* Free memory
+* Strange bug: Second line always evals wrong
+
 # Checklist - Adding a new node
 
 1) nodes.h:   Type declaration

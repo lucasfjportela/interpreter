@@ -1,11 +1,18 @@
-print 50 + 70 + 30;
-print 40 - 30;
-print 200 - 500 + 100;
+print 50 + 70 - 20;
+print 90 + 20;       # second line always evals wrong
 
 if 0 {
-	print 10000;
+	print 1000;
 }
 
 if 1 {
-	print 20000;
+	print 2000;
+}
+
+if 20 - 20 {
+	print 3000;
+}
+
+if 20 + 50 {
+	print 4000;
 }
