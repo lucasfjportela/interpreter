@@ -84,6 +84,8 @@ int eval(node *p) {
 			free(p->sub.child2);
 			return a - b;
 	}
+
+	return 0;
 }
 
 void yyerror(char* error) {
