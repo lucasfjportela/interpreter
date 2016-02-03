@@ -2,24 +2,23 @@ Barely any features yet, but the interpreting part works! Awesome :)
 
 # Grammar
 
-if       <expression> { <body> }
-print    <expression>
- 
-         <expression> : <expression> + <number>
-                      | <expression> - <number>
-                      | <number>
+  if       <expression> { <body> }
+  print    <expression>
 
+           <expression> : <expression> + <number>
+                        | <expression> - <number>
+                        | <number>
 
 # Todo
 
-* Free memory
+  * Free memory
 
 # Checklist - Adding a new node
 
-1) nodes.h:   Type declaration
-2) nodes.h:   Node declaration
-3) nodes.h:   Function declaration
-4) nodes.c:   Function definition
-5) main.c:    Eval case definition
-6) lex.l:     Token definition
-7) grammar.y: Grammar definition
+  1) nodes.h:   Type declaration
+  2) nodes.h:   Node declaration
+  3) nodes.h:   Function declaration
+  4) nodes.c:   Function definition
+  5) main.c:    Eval case definition
+  6) lex.l:     Token definition
+  7) grammar.y: Grammar definition

@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
 
 /* evaluate node */
 int eval(node *p) {
-	int i;
+	int i, a, b;
 
 	if (!p) return 0;
 	switch(p->type) {
@@ -54,19 +54,27 @@ int eval(node *p) {
 
 		/* if node */
 		case if_t:
-			if (eval(p->ifno.cond))
+			if (eval(p->ifno.cond)) {
 				eval(p->ifno.body);
+			}
+			free(p->ifno.cond);
 			free(p);
 			break;
 
 		/* print node */ 
 		case print_t:
 			printf("%d\n", eval(p->print.child));
+			free(p->print.child);
+			free(p);
 			break;
 
 		/* add node */ 
 		case add_t:
-			return eval(p->add.child1) + eval(p->add.child2);
+			a = eval(p->add.child1); 
+			b = eval(p->add.child2);
+			free(p->add.child1);
+			free(p->add.child2);
+			return a + b;
 
 		/* subtract node */ 
 		case subtract_t:
