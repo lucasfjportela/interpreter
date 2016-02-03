@@ -1,5 +1,5 @@
 debug: all
-	valgrind ./interpreter example.source
+	valgrind --leak-check=full ./interpreter example.source
 
 run: all 
 	@./interpreter example.source

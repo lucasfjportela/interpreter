@@ -18,7 +18,7 @@ node *body_n(node *child) {
 	p = nalloc();
 
 	/* allocate size of new child */
-	if ((p->body.children = malloc(sizeof(p->body.children))) == NULL)
+	if ((p->body.children = malloc(sizeof(child))) == NULL)
 		printf("out of memory");
 
 	/* store information */
@@ -33,7 +33,7 @@ void body_push(node *p, node *child) {
 
 	/* reallocate size of pointer array */
 	if ((p->body.children = realloc(p->body.children, 
-	  (p->body.count + 1) * sizeof(p->body.children))) == NULL)
+	  (p->body.count + 1) * sizeof(child))) == NULL)
 		printf("out of memory");
 
 	/* append new child */

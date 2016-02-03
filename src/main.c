@@ -58,7 +58,6 @@ int eval(node *p) {
 				eval(p->ifno.body);
 			}
 			free(p->ifno.cond);
-			free(p);
 			break;
 
 		/* print node */ 
@@ -78,7 +77,11 @@ int eval(node *p) {
 
 		/* subtract node */ 
 		case subtract_t:
-			return eval(p->sub.child1) - eval(p->sub.child2);
+			a = eval(p->sub.child1); 
+			b = eval(p->sub.child2);
+			free(p->sub.child1);
+			free(p->sub.child2);
+			return a - b;
 	}
 }
 
