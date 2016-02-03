@@ -13,7 +13,6 @@ print    <expression>
 # Todo
 
 * Free memory
-* Strange bug: Second line always evals wrong
 
 # Checklist - Adding a new node
 
