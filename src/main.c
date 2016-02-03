@@ -30,7 +30,6 @@ int main(int argc, char** argv) {
 	yyin = file;
 	yyparse();
 	fclose(file);
-
 	return 0;
 }
 
@@ -43,8 +42,9 @@ int eval(node *p) {
 
 		/* body node */
 		case body_t:
-			for (i = 0; i <= p->body.count; i++)
+			for (i = 0; i < p->body.count; i++) {
 				eval(p->body.children[i]);
+			}
 			free(p);
 			break;
 

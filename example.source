@@ -1,5 +1,5 @@
 print 50 + 70 - 20;
-print 90 + 20;       # second line always evals wrong
+print 90 + 20;
 
 if 0 {
 	print 1000;
