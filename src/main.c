@@ -6,6 +6,8 @@
 void yyerror(char*);
 int yyparse(void);
 int eval(node *p);
+void free_body(node *p);
+
 
 int main(int argc, char** argv) {
 
@@ -55,7 +57,8 @@ int eval(node *p) {
 		case if_t:
 			if (eval(p->ifno.cond))
 				eval(p->ifno.body);
-			/*  TODO: body_free function */
+			else
+				free_body(p->ifno.body);
 			free(p->ifno.cond);
 			free(p);
 			break;
@@ -85,6 +88,31 @@ int eval(node *p) {
 	}
 
 	return 0;
+}
+
+/* free body */
+void free_body(node *p) {
+	int i;
+  node *cp;
+
+	if (!p) return;
+
+	/* literate over children */
+	for (i = 0; i < p->body.count; i++) {
+		cp = p->body.children[i];
+  	switch(cp->type) {
+			case print_t:
+				free(cp->print.child);
+				free(cp);
+				free(p);
+				break;
+			case if_t:
+			case body_t:
+			case constant_t:
+			case add_t:
+			case subtract_t: break;
+		}
+	}
 }
 
 void yyerror(char* error) {

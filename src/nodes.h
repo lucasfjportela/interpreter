@@ -5,7 +5,7 @@ typedef enum {
 	if_t,
 	print_t,
 	add_t,
-	subtract_t,
+	subtract_t
 } nodeType;
 
 /* body */
