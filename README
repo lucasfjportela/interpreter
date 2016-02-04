@@ -18,6 +18,11 @@ Barely any features yet, but the interpreting part works! Awesome :)
       Also some day everything should be separate
       from the eval function.
 
+  * Stack / Functions:
+      Every function call should push declared variables
+      onto the stack, after returning the variables
+      should be popped.
+
 # Checklist - Adding a new node
 
   1) nodes.h:   Type declaration
