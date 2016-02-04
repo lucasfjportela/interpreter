@@ -93,14 +93,14 @@ int eval(node *p) {
 /* free body */
 void free_body(node *p) {
 	int i;
-  node *cp;
+	node *cp;
 
 	if (!p) return;
 
 	/* literate over children */
 	for (i = 0; i < p->body.count; i++) {
 		cp = p->body.children[i];
-  	switch(cp->type) {
+		switch(cp->type) {
 			case print_t:
 				free(cp->print.child);
 				free(cp);
